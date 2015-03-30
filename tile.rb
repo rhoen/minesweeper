@@ -2,7 +2,7 @@ class Tile
   def initialize(board,position)
     @flagged = false
     @bomb = false
-    @revealed = true
+    @revealed = false
     @position= position
     @board=board #object
   end

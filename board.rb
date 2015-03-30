@@ -55,7 +55,7 @@ class Board
   end
 
   def game_over?
-    return true if loser? || winer?
+    return true if loser? || winner?
     false
   end
 
@@ -75,10 +75,12 @@ class Board
   end
 
   def set_mark(pos, flagged=false)
-    spot= (pos[0]+1)*width + pos[1]
+
+    spot = (pos[0]) * width + pos[1]
     if flagged
       @tiles[spot].flagged = true
     else
+      p @tiles[spot].position
       @tiles[spot].revealed=true
     end
   end
