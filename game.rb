@@ -59,7 +59,7 @@ if __FILE__ == $PROGRAM_NAME
   if ARGV[0]
     p ARGV[0]
     game = Game.new
-    game.load(ARGV[0])
+    
   else
     puts "choose difficulty: easy, meduim, hard"
     choice = gets.chomp
