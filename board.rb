@@ -1,10 +1,15 @@
+require "tile"
+
+
+
 class Board
 
   def initialize(length = 9, width = 9, mines=10)
     @length = length
     @width = width
     @mines = mines
-    @tiles = create_tiles.seed_bombs
+    @tiles = create_tiles
+    @tiles.seed_bombs
 
   end
 
@@ -37,6 +42,14 @@ class Board
       end
     end
 
+  end
+
+  def display
+    @tiles.map do |row|
+      row.map do |tile|
+        tile.display
+      end.join("")
+    end.join("\n")
   end
 
 end

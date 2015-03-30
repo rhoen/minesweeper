@@ -1,3 +1,6 @@
+require 'board'
+
+
 class Tile
   def initialize(board,position)
     @flagged = false
