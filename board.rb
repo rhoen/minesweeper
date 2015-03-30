@@ -25,7 +25,10 @@ class Board
     #
     seeded_board.each_with_index do |row, i|
       row.each_index do |j|
-        Tile.new([i,j], {bomb: false, revealed: false, flagged: false})
+        seeded_board[i,j]= Tile.new(self, [i,j], {bomb: false, revealed: false, flagged: false})
+      end
+    end
+
 
 
   end
