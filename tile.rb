@@ -7,6 +7,9 @@ class Tile
     @board=board #object
   end
 
+  RELATIVE_POSITIONS= [[-1,-1],[-1,0],[-1,1],
+                        [0,-1],       [0,1],
+                        [1,-1],[1,0],[1,1]]
 
 
 
