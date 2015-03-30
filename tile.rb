@@ -1,11 +1,8 @@
-require 'board'
-
-
 class Tile
   def initialize(board,position)
     @flagged = false
     @bomb = false
-    @revealed = false
+    @revealed = true
     @position= position
     @board=board #object
   end
@@ -15,7 +12,7 @@ class Tile
                         [1,-1],[1,0],[1,1]]
 
 
-  attr_reader :flagged, :bomb, :revealed, :position
+  attr_accessor :flagged, :bomb, :revealed, :position
 
   def determine
     near_tiles=[]
@@ -37,7 +34,7 @@ class Tile
     return "F" if flagged
     return "0" if !revealed
     return "*" if bomb
-    return " " if determine==0
+    return "#" if determine==0
     return determine.to_s
   end
 

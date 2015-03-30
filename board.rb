@@ -1,4 +1,4 @@
-require "tile"
+require './tile'
 
 
 
@@ -9,7 +9,7 @@ class Board
     @width = width
     @mines = mines
     @tiles = create_tiles
-    @tiles.seed_bombs
+
 
   end
 
@@ -25,31 +25,45 @@ class Board
     tiles = []
     temp_board.each_with_index do |row, i|
       row.each_index do |j|
-        tiles << Tile.new(self, [i,j],)
+        tiles << Tile.new(self, [i,j])
+      end
+    end
+
+    seed_bombs(tiles)
+  end
+
+  def seed_bombs(tiles)
+
+    bombs = 0
+    until bombs == @mines
+      if tiles[rand(tiles.size - 1)].bomb == false
+        tiles[rand(tiles.size - 1)].bomb = true
+        bombs += 1
       end
     end
 
     tiles
   end
 
-  def seed_bombs
-
-    bombs = 0
-    until bombs = @mines
-      if @tiles[rand(@tiles.size - 1)].bomb == false
-        @tiles[rand(@tiles.size - 1)].bomb = true
-        bombs += 1
-      end
-    end
-
-  end
-
   def display
-    @tiles.map do |row|
+    arr = @tiles.each_slice(width).to_a
+    arr.map do |row|
       row.map do |tile|
         tile.display
       end.join("")
     end.join("\n")
+
   end
+
+  def game_over?
+    @tiles.each do |tile|
+      return true if tile.revealed && tile.bomb
+    end
+
+    false
+  end
+
+  #
+  #
 
 end
