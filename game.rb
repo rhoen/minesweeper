@@ -3,15 +3,19 @@ require 'yaml'
 
 class Game
 
-  DIFFICULTIES = { easy: [9,9,10], medium: [16,16,40], hard: [30,16,99]  }
+  DIFFICULTIES = { easy: [9,9,10], medium: [16,16,40], hard: [16,30,99]  }
 
 
   def initialize(difficulty = :easy)
     @board = Board.new(*DIFFICULTIES[difficulty])
   end
 
+  attr_accessor :board
+
   def load(board)
-    @board = board
+    obj= File.open(board)
+    @board = YAML.load(obj)
+
   end
 
   def play
@@ -51,8 +55,11 @@ end
 
 
 if __FILE__ == $PROGRAM_NAME
+  p "test"
   if ARGV[0]
-    game = Game.new.load(ARGV[0])
+    p ARGV[0]
+    game = Game.new
+    game.load(ARGV[0])
   else
     puts "choose difficulty: easy, meduim, hard"
     choice = gets.chomp

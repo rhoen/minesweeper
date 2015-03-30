@@ -13,7 +13,7 @@ tiles:
   board: *1
 - !ruby/object:Tile
   flagged: false
-  bomb: false
+  bomb: true
   revealed: false
   position:
   - 0
@@ -45,7 +45,7 @@ tiles:
   board: *1
 - !ruby/object:Tile
   flagged: false
-  bomb: false
+  bomb: true
   revealed: false
   position:
   - 0
@@ -86,7 +86,7 @@ tiles:
 - !ruby/object:Tile
   flagged: false
   bomb: false
-  revealed: false
+  revealed: true
   position:
   - 1
   - 1
@@ -229,7 +229,7 @@ tiles:
   board: *1
 - !ruby/object:Tile
   flagged: false
-  bomb: false
+  bomb: true
   revealed: false
   position:
   - 3
@@ -237,7 +237,7 @@ tiles:
   board: *1
 - !ruby/object:Tile
   flagged: false
-  bomb: false
+  bomb: true
   revealed: false
   position:
   - 3
@@ -245,7 +245,7 @@ tiles:
   board: *1
 - !ruby/object:Tile
   flagged: false
-  bomb: false
+  bomb: true
   revealed: false
   position:
   - 3
@@ -253,7 +253,7 @@ tiles:
   board: *1
 - !ruby/object:Tile
   flagged: false
-  bomb: false
+  bomb: true
   revealed: false
   position:
   - 3
@@ -325,7 +325,7 @@ tiles:
   board: *1
 - !ruby/object:Tile
   flagged: false
-  bomb: true
+  bomb: false
   revealed: false
   position:
   - 4
@@ -341,7 +341,7 @@ tiles:
   board: *1
 - !ruby/object:Tile
   flagged: false
-  bomb: false
+  bomb: true
   revealed: false
   position:
   - 4
@@ -357,7 +357,7 @@ tiles:
   board: *1
 - !ruby/object:Tile
   flagged: false
-  bomb: false
+  bomb: true
   revealed: false
   position:
   - 4
@@ -365,7 +365,7 @@ tiles:
   board: *1
 - !ruby/object:Tile
   flagged: false
-  bomb: false
+  bomb: true
   revealed: false
   position:
   - 5
@@ -429,7 +429,7 @@ tiles:
   board: *1
 - !ruby/object:Tile
   flagged: false
-  bomb: true
+  bomb: false
   revealed: false
   position:
   - 5
@@ -517,7 +517,7 @@ tiles:
   board: *1
 - !ruby/object:Tile
   flagged: false
-  bomb: true
+  bomb: false
   revealed: false
   position:
   - 7
@@ -533,7 +533,7 @@ tiles:
   board: *1
 - !ruby/object:Tile
   flagged: false
-  bomb: true
+  bomb: false
   revealed: false
   position:
   - 7
@@ -541,7 +541,7 @@ tiles:
   board: *1
 - !ruby/object:Tile
   flagged: false
-  bomb: true
+  bomb: false
   revealed: false
   position:
   - 7
@@ -557,7 +557,7 @@ tiles:
   board: *1
 - !ruby/object:Tile
   flagged: false
-  bomb: true
+  bomb: false
   revealed: false
   position:
   - 7
@@ -613,7 +613,7 @@ tiles:
   board: *1
 - !ruby/object:Tile
   flagged: false
-  bomb: true
+  bomb: false
   revealed: false
   position:
   - 8
@@ -629,7 +629,7 @@ tiles:
   board: *1
 - !ruby/object:Tile
   flagged: false
-  bomb: true
+  bomb: false
   revealed: false
   position:
   - 8
