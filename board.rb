@@ -52,7 +52,6 @@ class Board
         tile.display
       end.join("")
     end.join("\n")
-
   end
 
   def game_over?
@@ -74,6 +73,16 @@ class Board
     end
     true
   end
+
+  def set_mark(pos, flagged=false)
+    spot= (pos[0]+1)*width + pos[1]
+    if flagged
+      @tiles[spot].flagged = true
+    else
+      @tiles[spot].revealed=true
+    end
+  end
+  
 
 
 
