@@ -13,11 +13,12 @@ class Game
   def play
     until @board.game_over?
       puts "Enter move i.e. [x, y], flag? (e.g. 1,4,true sets a flag on [1,4].
-      1,4 reveals [1,4])"
+      1,4 reveals [1,4]) or type \"save\""
       move = gets.chomp
       @board.set_mark(*parse_input(move))
       render
       
+
     end
   end
 

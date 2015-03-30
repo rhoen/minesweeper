@@ -56,6 +56,7 @@ class Board
       if tile.revealed && tile.bomb
         puts "Game Over You lost!"
         return true
+      end
     end
     false
   end
