@@ -12,9 +12,9 @@ class Tile
                         [1,-1],[1,0],[1,1]]
 
 
-  attr_accessor :flagged, :bomb, :revealed, :position
+  attr_accessor :flagged, :bomb, :revealed, :position, :neighbors
 
-  def determine
+  def neighbors
     near_tiles=[]
     RELATIVE_POSITIONS.each do |(row,column)|
       @board.tiles.each do |tile|
@@ -22,8 +22,12 @@ class Tile
       end
     end
 
+    near_tiles
+  end
+
+  def determine
     bombs = 0
-    near_tiles.each do |tile|
+    neighbors.each do |tile|
       bombs += 1 if tile.bomb
     end
 

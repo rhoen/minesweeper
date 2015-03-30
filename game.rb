@@ -17,6 +17,7 @@ class Game
       move = gets.chomp
       @board.set_mark(*parse_input(move))
       render
+      
     end
   end
 
@@ -26,7 +27,6 @@ class Game
     pos << input[0].to_i
     pos << input[1].to_i
     flagged = !input[2].nil?
-    p [pos,flagged]
     [pos, flagged]
   end
 

@@ -9,8 +9,6 @@ class Board
     @width = width
     @mines = mines
     @tiles = create_tiles
-
-
   end
 
   attr_reader :length, :width, :mines, :tiles
@@ -18,10 +16,6 @@ class Board
 
   def create_tiles
     temp_board = Array.new(length) {Array.new width}
-    # while temp_board.count('*') < @mines
-    #   temp_board[rand(0...temp_board.length)] = '*'
-    # end
-    #
     tiles = []
     temp_board.each_with_index do |row, i|
       row.each_index do |j|
@@ -33,7 +27,6 @@ class Board
   end
 
   def seed_bombs(tiles)
-
     bombs = 0
     until bombs == @mines
       if tiles[rand(tiles.size - 1)].bomb == false
@@ -55,13 +48,14 @@ class Board
   end
 
   def game_over?
-    return true if loser? || winner?
-    false
+    loser? || winner?
   end
 
   def loser?
     @tiles.each do |tile|
-      return true if tile.revealed && tile.bomb
+      if tile.revealed && tile.bomb
+        puts "Game Over You lost!"
+        return true
     end
     false
   end
@@ -71,25 +65,33 @@ class Board
         return false
       end
     end
+    puts "CONGRATS B)"
     true
   end
 
   def set_mark(pos, flagged=false)
 
     spot = (pos[0]) * width + pos[1]
-    if flagged
-      @tiles[spot].flagged = true
+    tile = @tiles[spot]
+
+    if tile.revealed
+      nil
+    #mark unrevealed tile as flagged
+    elsif flagged && !tile.revealed
+      tile.flagged = true
+    #mark flagged tile as unflagged
+    elsif tile.flagged && flagged
+      tile.flagged = false
+    elsif tile.determine == 0
+      tile.revealed = true
+      tile.neighbors.each do |child|
+        set_mark(child.position)
+      end
     else
-      p @tiles[spot].position
-      @tiles[spot].revealed=true
+      tile.revealed=true
     end
   end
 
 
-
-
-
-  #
-  #
 
 end
