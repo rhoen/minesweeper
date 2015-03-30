@@ -50,8 +50,8 @@ class Board
     arr.map do |row|
       row.map do |tile|
         tile.display
-      end.join("")
-    end.join("\n")
+      end.join("..")
+    end.join("\n\n")
   end
 
   def game_over?
@@ -82,7 +82,7 @@ class Board
       @tiles[spot].revealed=true
     end
   end
-  
+
 
 
 
