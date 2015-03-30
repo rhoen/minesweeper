@@ -13,5 +13,21 @@ class Tile
 
 
 
+  def determine
+    near_tiles=[]
+    RELATIVE_POSITIONS.each do |(row,column)|
+      @board.tiles.each do |tile|
+        near_tiles << tile if tile.position == [(@position[0]+ row) , (@position[1] + column)]
+      end
+    end
+
+    bombs = 0
+    near_tiles.each do |tile|
+      bombs += 1 if tile.bomb
+    end
+
+    bombs
+  end
+
 
 end

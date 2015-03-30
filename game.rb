@@ -4,9 +4,12 @@ class Game
 
 
   initialize(difficulty=:easy)
-    @board=Board.new(*DIFFICULTES[difficulty])
+    @board = Board.new(*DIFFICULTES[difficulty])
   end
 
+  def play
+    @board.seed_bombs
+  end
 
 
 
