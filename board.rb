@@ -4,27 +4,30 @@ class Board
     @length = length
     @width = width
     @mines = mines
+    @board = determine(seed)
   end
 
-  attr_reader :length, :width, :mines
+  attr_reader :length, :width, :mines, :board
 
 
-  def determine
+
+
+
+  def determine(seeded_board)
 
   end
 
   def seed
-    temp_board = Array.new(length * width)
-    while temp_board.count('*') < @mines
-      temp_board[rand(0...temp_board.length)] = '*'
-    end
+    temp_board = Array.new(length) {Array.new width}
+    # while temp_board.count('*') < @mines
+    #   temp_board[rand(0...temp_board.length)] = '*'
+    # end
+    #
+    seeded_board.each_with_index do |row, i|
+      row.each_index do |j|
+        Tile.new([i,j], {bomb: false, revealed: false, flagged: false})
 
-    board = []
-    length.times do |i|
-      board << [temp_board.shift(width)]
-    end
 
-    board
   end
 
 end
