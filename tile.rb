@@ -12,6 +12,7 @@ class Tile
                         [1,-1],[1,0],[1,1]]
 
 
+  attr_reader :flagged, :bomb, :revealed, :position
 
   def determine
     near_tiles=[]
@@ -28,6 +29,16 @@ class Tile
 
     bombs
   end
+
+  def display
+    return "F" if flagged
+    return "0" if !revealed
+    return "*" if bomb
+    return " " if determine==0
+    return determine.to_s
+  end
+
+
 
 
 end
