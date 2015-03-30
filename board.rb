@@ -56,12 +56,27 @@ class Board
   end
 
   def game_over?
+    return true if loser? || winer?
+    false
+  end
+
+  def loser?
     @tiles.each do |tile|
       return true if tile.revealed && tile.bomb
     end
-
     false
   end
+  def winner?
+    @tiles.each do |tile|
+      if !tile.bomb and !tile.revealed
+        return false
+      end
+    end
+    true
+  end
+
+
+
 
   #
   #
