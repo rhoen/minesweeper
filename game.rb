@@ -6,7 +6,7 @@ class Game
   DIFFICULTIES = { easy: [9,9,10], medium: [16,16,40], hard: [30,16,99]  }
 
 
-  def initialize(board = difficulty = :easy)
+  def initialize(difficulty = :easy)
     @board = Board.new(*DIFFICULTIES[difficulty])
   end
 
@@ -63,6 +63,7 @@ if __FILE__ == $PROGRAM_NAME
       game = Game.new(:medium)
     when "hard"
       game = Game.new(:hard)
+    end
   end
   game.play
 end
