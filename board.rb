@@ -1,14 +1,14 @@
 class Board
 
-  def initialize(length = 9, width = 9, mines = 10)
+  def initialize(length = 9, width = 9, mines=10)
     @length = length
     @width = width
     @mines = mines
-    @board = determine(seed)
+    @tiles=[]
+
   end
 
-  attr_reader :length, :width, :mines, :board
-
+  attr_reader :length, :width, :mines, :tiles
 
 
 
@@ -23,9 +23,9 @@ class Board
     #   temp_board[rand(0...temp_board.length)] = '*'
     # end
     #
-    seeded_board.each_with_index do |row, i|
+    temp_board.each_with_index do |row, i|
       row.each_index do |j|
-        seeded_board[i,j]= Tile.new(self, [i,j], {bomb: false, revealed: false, flagged: false})
+        @tiles= Tile.new(self, [i,j],)
       end
     end
 
